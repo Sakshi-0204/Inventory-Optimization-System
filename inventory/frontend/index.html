@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invenza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login-container">
+    <div class="login-box">
+        <h1 class="logo">Invenza</h1>
+        <p class="tagline">Smart Inventory. Smarter Decisions.</p>
+
+        <input id="username" placeholder="Username">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+        <button onclick="signup()" class="secondary">Sign Up</button>
+    </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <h2>Invenza</h2>
+        <div>
+            👤 <span id="userLabel"></span>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <button onclick="showPage('dashboard');highlightActive(this)">Dashboard</button>
+        <button onclick="showPage('product');highlightActive(this)">Products</button>
+        <button onclick="showPage('add');highlightActive(this)">Add Product</button>
+        <button onclick="showPage('alerts');highlightActive(this)">Alerts</button>
+        <button onclick="showPage('reports');highlightActive(this)">Reports</button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div id="dashboardPage" class="page active">
+            <h2>Dashboard</h2>
+            <p style="color:#ccc;">Welcome to Invenza – Smart Inventory Dashboard</p>
+
+            <div class="cards">
+                <div class="card">Total <span id="total"></span></div>
+                <div class="card low">Low <span id="low"></span></div>
+                <div class="card out">Out <span id="out"></span></div>
+                <div class="card over">Over <span id="over"></span></div>
+            </div>
+        </div>
+
+        <div id="productPage" class="page">
+            <h2>Products</h2>
+
+            <input id="searchInput" placeholder="Search product">
+            <button onclick="search()">Search</button>
+            <button onclick="filter('low')">Low</button>
+            <button onclick="filter('out')">Out</button>
+            <button onclick="filter('over')">Over</button>
+            <button onclick="sort()">Sort Qty</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Qty</th>
+                        <th>Threshold</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table"></tbody>
+            </table>
+        </div>
+
+        <div id="addPage" class="page">
+            <h2>Add Product</h2>
+            <input id="name" placeholder="Name">
+            <input id="quantity" placeholder="Quantity">
+            <input id="threshold" placeholder="Threshold">
+            <input id="maxStock" placeholder="Max Stock">
+            <input id="price" placeholder="Price">
+
+            <select id="category">
+                <option>Dairy</option>
+                <option>Grocery</option>
+                <option>Electronics</option>
+            </select>
+
+            <button onclick="addProduct()">Add</button>
+        </div>
+
+        <div id="alertsPage" class="page">
+            <h2>Alerts</h2>
+            <ul id="alerts"></ul>
+        </div>
+
+        <div id="reportsPage" class="page">
+            <h2>Reports</h2>
+            <button onclick="downloadReport()">Download CSV</button>
+        </div>
+
+    </div>
+</div>
+
+<div id="popup"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

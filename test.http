@@ -1,0 +1,36 @@
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123",
+  "role": "admin"
+}
+###
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123"
+}
+###
+POST http://localhost:8080/add
+Content-Type: application/json
+
+{
+  "name": "Milk",
+  "quantity": 5,
+  "threshold": 10,
+  "maxStock": 50,
+  "price": 30,
+  "category": "Dairy"
+}
+###
+GET http://localhost:8080/products
+###
+GET http://localhost:8080/products
+###
+GET http://localhost:8080/alerts
+###
+GET http://localhost:8080/dashboard
